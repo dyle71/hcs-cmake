@@ -1,16 +1,16 @@
-# deb-package.cmake
+# rpm-package.cmake
 
-Instructs CMake to include `package` target which builds a Debian package `.deb`. Ideally the building machine and the 
-target system are identical, i.e. using an Ubuntu 20.04 LTS to build a package for Ubuntu 20.04. Cross-systems
-build are possible though.
+Instructs CMake to include `package` target which builds a Debian package `.rpm`. Ideally the building machine and the 
+target system are identical, i.e. using an Fedora 32 to build a package for Fedora 32. Cross-systems build are possible 
+though.
 
 
 ## Synopsis
 
 In your `CMakeLists.txt` state
 ```
-set(PACKAGE_DEB_CONTROL_DIR "path-to-control-files")
-include(deb-package.cmake)
+set(PACKAGE_RPM_CONTROL_DIR "path-to-control-files")
+include(rpm-package.cmake)
 include(CPack)
 ```
 
@@ -29,18 +29,17 @@ Apply all usuall package variables introduced by CPack.
 * `CPACK_PACKAGE_FILE_NAME`: File name (prefix part) of the poackage.
 
 Especially noted:
-* `CPACK_DEBIAN_PACKAGE_DEPENDS`: you should fix the dependencies with by setting the `CPACK_DEBIAN_PACKAGE_DEPENDS`.
-* `PACKAGE_DEB_CONTROL_DIR`: Path to folder containing the DEB control files.
+* `CPACK_RPM_PACKAGE_REQUIRES`: you should fix the dependencies with by setting the `CPACK_RPM_PACKAGE_REQUIRES`.
+* `PACKAGE_RPM_CONTROL_DIR`: Path to folder containing the RPM control scripts.
 
 The control files are:
-* `conffiles`:  The configuration files of this package, line by line.
 * `preinst`: pre-installation script.
 * `postinst`: post-installation script.
 * `prerm`: pre-removal script.
 * `postrm`: post-removal script.
 
 
-The folder `deb-package` contains template files. Please copy these to somewhere to your project root folder and
+The folder `rpm-package` contains template files. Please copy these to somewhere to your project root folder and
 modify them accordingly.
 
 
@@ -48,9 +47,8 @@ modify them accordingly.
 
 Having 
 ```bash
-$ tree package/deb/
-package/deb/
-├── conffiles
+$ tree package/rpm/
+package/rpm/
 ├── postinst
 ├── postrm
 ├── preinst
@@ -69,10 +67,10 @@ set(CPACK_PACKAGE_CONTACT "John Doe <john.doe@supertool.software>")
 set(CPACK_PACKAGE_VENDOR "SuperTool Software Inc.")
 set(CPACK_PACKAGE_FILE_NAME "super-tool-${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}-${CMAKE_SYSTEM_PROCESSOR}")
 
-set(CPACK_DEBIAN_PACKAGE_DEPENDS "good-tool (>= 1.2)"
-set(PACKAGE_DEB_CONTROL_DIR "package/deb")
+set(CPACK_RPM_PACKAGE_REQUIRES "good-tool (>= 1.2)"
+set(PACKAGE_RPM_CONTROL_DIR "package/rpm")
 
-include(cmake/deb-package.cmake)
+include(cmake/rpm-package.cmake)
 include(CPack)
 ```
 
