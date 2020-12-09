@@ -67,7 +67,7 @@ set(CPACK_PACKAGE_CONTACT "John Doe <john.doe@supertool.software>")
 set(CPACK_PACKAGE_VENDOR "SuperTool Software Inc.")
 set(CPACK_PACKAGE_FILE_NAME "super-tool-${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}-${CMAKE_SYSTEM_PROCESSOR}")
 
-set(CPACK_RPM_PACKAGE_REQUIRES "good-tool (>= 1.2)"
+set(CPACK_RPM_PACKAGE_REQUIRES "good-tool (>= 1.2)")
 set(PACKAGE_RPM_CONTROL_DIR "package/rpm")
 
 include(cmake/rpm-package.cmake)
