@@ -38,7 +38,7 @@ $ git submodule add https://gitlab.com/headcode.space/benchmark.git 3rd/hcs-benc
 
 ```
 include(hcs-benchmark)
-include_directories(${HCS_BENCHMAKR_INCLUDE_DIR})
+include_directories(${HCS_BENCHMARK_INCLUDE_DIR})
 ```
 
 
