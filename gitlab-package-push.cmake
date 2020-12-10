@@ -17,6 +17,7 @@ if ("${GITLAB_PACKAGE_GROUP_NAME}" STREQUAL "")
 endif()
 
 set(GITLAB_PACKAGE_URL "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${GITLAB_PACKAGE_GROUP_NAME}/${CPACK_PROJECT_VERSION_STRING}/${PACKAGE_FILE_NAME}")
+message(STATUS "GITLAB_PACKAGE_URL: ${GITLAB_PACKAGE_URL}")
 find_program(CURL_COMMAND curl PATHS /usr/bin /usr/local/bin REQUIRED)
 add_custom_target(gitlab_push_package
     COMMAND ${CURL_COMMAND} --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file "${PACKAGE_FILE}" "${GITLAB_PACKAGE_URL}"
