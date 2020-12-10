@@ -24,7 +24,7 @@ The `GITLAB_PROJECT_ID` is the numerical project id listened on the GitLab serve
 ## Options
 
 * `GITLAB_PROJECT_ID`: The numerical id of the project at the GitLab server.
-* `GITLAB_PACKAGE_GROUP_NAME`: The name package of the package group.
+* `GITLAB_PACKAGE_GROUP_NAME`: The name package of the package group. If missing, then the project name is used.
 * `GITLAB_PACKAGE_URL`: Full GitLab API 4 url to the project.
 * `PACKAGE_FILE_NAME`: The name of the local built package file without parent folder.
 * `PACKAGE_FILE`: Full path to the local built package file.
@@ -36,8 +36,8 @@ The `GITLAB_PROJECT_ID` is the numerical project id listened on the GitLab serve
 ...
 include(rpm-package)
 include(CPack)
-set(GITLAB_PACKAGE_URL "https://gitlab.com/api/v4/projects/33778880090/packages/generic/super-tool")
-set(PACKAGE_FILE_NAME "${CPACK_PACKAGE_FILE_NAME}.rpm")
+
+set(PACKAGE_FILE_NAME "${CPACK_PACKAGE_FILE_NAME}.deb")
 set(PACKAGE_FILE "${CMAKE_BINARY_DIR}/${PACKAGE_FILE_NAME}")
 include(gitlab-package-push)
 ```
