@@ -15,6 +15,12 @@
 # ------------------------------------------------------------
 
 
+# Google Test seems to have a dependency on pthreads...
+check_library_exists(pthread pthread_kill "/usr/local/lib;/usr/lib;/lib" HAVE_PTHREAD_LIB)
+if (HAVE_PTHREAD_LIB)
+    set(CMAKE_REQUIRED_LIBRARIES "pthread;${CMAKE_REQUIRED_LIBRARIES}")
+endif ()
+
 set(GTEST_BUILD_NEEDED "false")
 if (NOT DEFINED GTEST_INCLUDE_DIR)
     set(GTEST_BUILD_NEEDED "true")
