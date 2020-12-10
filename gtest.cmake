@@ -31,13 +31,15 @@ endif()
 if (NOT DEFINED GMOCK_MAIN_LIBRARY)
     set(GTEST_BUILD_NEEDED "true")
 endif()
+message(STATUS "GTEST_BUILD_NEEDED: ${GTEST_BUILD_NEEDED}")
 
-
-if (GTEST_BUILD_NEEDED EQUAL "true")
+if (GTEST_BUILD_NEEDED STREQUAL "true")
 
     message(STATUS "Needing submodule build of Google Test files (includes, gtest libs and gmock libs).")
-    
-    CHECK_VARIABLE_EXISTS(GTEST_SOURCE_DIR ${CMAKE_SOURCE_DIR}/3rd/googletest)
+    if (NOT DEFINED GTEST_SOURCE_DIR)
+        set(GTEST_SOURCE_DIR ${CMAKE_SOURCE_DIR}/3rd/googletest)
+    endif()
+    message(STATUS "Searching for GTest files in ${GTEST_SOURCE_DIR}")
 
     if (NOT EXISTS "${GTEST_SOURCE_DIR}/CMakeLists.txt")
         message(FATAL_ERROR "The git submodule for googletest has not been downloaded!")

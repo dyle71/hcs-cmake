@@ -7,8 +7,10 @@
 # ------------------------------------------------------------
 
 set(CPACK_GENERATOR "RPM")
+if (NOT DEFINED PACKAGE_RPM_CONTROL_DIR)
+    set(PACKAGE_RPM_CONTROL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/rpm-package)
+endif()
 
-CHECK_VARIABLE_EXISTS(PACKAGE_RPM_CONTROL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/rpm-package)
 if (EXISTS "${PACKAGE_RPM_CONTROL_DIR}/preinst")
     set(CPACK_RPM_PRE_INSTALL_SCRIPT_FILE "${PACKAGE_RPM_CONTROL_DIR}/preinst")
 endif()

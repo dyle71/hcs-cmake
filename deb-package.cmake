@@ -6,9 +6,11 @@
 # https://www.headcode.space, <info@headcode.space>
 # ------------------------------------------------------------
 
-CHECK_VARIABLE_EXISTS(PACKAGE_DEB_CONTROL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/deb-package)
-
 set(CPACK_GENERATOR "DEB")
+if (NOT DEFINED PACKAGE_DEB_CONTROL_DIR)
+    set(PACKAGE_DEB_CONTROL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/deb-package)
+endif()
+
 foreach(CONTROL_FILE IN "conffiles;preinst;postinst;prerm;postrm")
     if (EXISTS ${PACKAGE_DEB_CONTROL_DIR}/${CONTROL_FILE})
         if (CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA) 
