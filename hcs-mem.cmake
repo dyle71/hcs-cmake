@@ -32,6 +32,8 @@ if ("${HCS_MEM_INCLUDE}" STREQUAL "")
     message(STATUS "Using hcs-mem found at ${HCS_MEM_SOURCE_DIR}...")
 
     execute_process(COMMAND "${CMAKE_COMMAND}"
+            -D HCS_CMAKE=${CMAKE_SOURCE_DIR}/cmake
+            -D HCS_BENCHMARK_SOURCE_DIR=${HCS_BENCHMARK_SOURCE_DIR}
             -S "${HCS_MEM_SOURCE_DIR}"
             -B ${CMAKE_BINARY_DIR}/3rd/hcs-mem
     )
