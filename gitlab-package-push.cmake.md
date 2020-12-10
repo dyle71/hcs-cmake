@@ -3,22 +3,25 @@
 Generates a make target to push the built binary package (see `deb-package.cmake` or `rpm-package.cmake`) to the GitLab 
 container repository.
 
-Hence, this is meant to be run by a GitLab CI/CD runner. As such it relies on having a CI_JOB_TOKEN set when run.
+Hence, this is meant to be run by a GitLab CI/CD runner. As such it relies on having a CI_JOB_TOKEN set when run. 
+Please pass on this job token to the cmake invocation, e.g. `cmake -DCI_JOB_TOKEN=$CI_JOB_TOKEN ..`
 
 
 ## Synopsis
 
 In your `CMakeLists.txt` state
 ```
-set(GITLAB_PROJECT_ID "1234567890")
-set(GITLAB_PACKAGE_GROUP_NAME "super-project")
-set(GITLAB_PACKAGE_URL "https://gitlab.com/api/v4/projects/${GITLAB_PROJECT_ID}/packages/generic/${GITLAB_PACKAGE_GROUP_NAME}")
+set(PROJECT_ID "12345678")
+set(PACKAGE_GROUP "super-tool")
+
+set(GITLAB_PACKAGE_BASE_URL "https://gitlab.com/api/v4/projects/${PROJECT_ID}/packages/generic/${PACKAGE_GROUP}")
 set(PACKAGE_FILE_NAME "${CPACK_PACKAGE_FILE_NAME}.rpm")
 set(PACKAGE_FILE "${CMAKE_BINARY_DIR}/${PACKAGE_FILE_NAME}")
 include(gitlab-package-push)
 ```
 
-The `GITLAB_PROJECT_ID` is the numerical project id listened on the GitLab server. 
+The `PROJECT_ID` is the numerical project id listened on the GitLab server, `PACKAGE_GROUP` is the group name to
+collect the packages within the project.
 
 
 ## Options
