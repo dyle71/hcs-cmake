@@ -27,6 +27,7 @@ Apply all usuall package variables introduced by CPack.
 * `CPACK_PACKAGE_CONTACT`: Whom to contact in case of questions or errors.
 * `CPACK_PACKAGE_VENDOR`: Organisation producing the package.
 * `CPACK_PACKAGE_FILE_NAME`: File name (prefix part) of the poackage.
+* `CPACK_SYSTEM_NAME`: This will hold the target operating system name.
 
 Especially noted:
 * `CPACK_RPM_PACKAGE_REQUIRES`: you should fix the dependencies with by setting the `CPACK_RPM_PACKAGE_REQUIRES`.
@@ -67,6 +68,7 @@ set(CPACK_PACKAGE_CONTACT "John Doe <john.doe@supertool.software>")
 set(CPACK_PACKAGE_VENDOR "SuperTool Software Inc.")
 set(CPACK_PACKAGE_FILE_NAME "super-tool-${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}-${CMAKE_SYSTEM_PROCESSOR}")
 
+set(CPACK_SYSTEM_NAME "super-OS_123")
 set(CPACK_RPM_PACKAGE_REQUIRES "good-tool (>= 1.2)")
 set(PACKAGE_RPM_CONTROL_DIR "package/rpm")
 
