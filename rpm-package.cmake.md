@@ -16,7 +16,7 @@ include(CPack)
 
 ## Options
 
-Apply all usuall package variables introduced by CPack.
+Apply all usual package variables introduced by CPack.
 
 * `CPACK_PACKAGE_NAME`: Name of the package.
 * `CPACK_PACKAGE_VERSION_MAJOR`: Version major number of the package to build.
