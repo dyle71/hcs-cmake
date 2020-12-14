@@ -28,7 +28,7 @@ depicted above.
 
 ## Example
 
-Download Google Test as submodule like this:
+Download headcode.space benchmakr as submodule like this:
 
 ```bash
 $ mkdir 3rd
