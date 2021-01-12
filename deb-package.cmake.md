@@ -81,6 +81,4 @@ include(CPack)
 
 ---
 
-Oliver Maurhart, <oliver.maurhart@headcode.space>  
-Copyright (C) 2020-2021 headcode.space
-[https://headcode.space](https://www.headcode.space)
+Copyright (C) 2020-2021 headcode.space, Oliver Maurhart <info@headcode.space>, https://www.headcode.space

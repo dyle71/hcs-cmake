@@ -2,8 +2,7 @@
 # This file defines lets you push a packe to a gitlab package registry
 #
 # The 'LICENSE.txt' file in the project root holds the software license.
-# Copyright (C) 2020-2021 headcode.space
-# https://www.headcode.space, <info@headcode.space>
+# Copyright (C) 2020-2021 headcode.space, Oliver Maurhart <info@headcode.space>, https://www.headcode.space
 # ------------------------------------------------------------
 
 if ("${PACKAGE_FILE}" STREQUAL "")

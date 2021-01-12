@@ -2,8 +2,7 @@
 # This file defines the CMake for Google Test integration
 #
 # The 'LICENSE.txt' file in the project root holds the software license.
-# Copyright (C) 2020-2021 headcode.space
-# https://www.headcode.space, <info@headcode.space>
+# Copyright (C) 2020-2021 headcode.space, Oliver Maurhart <info@headcode.space>, https://www.headcode.space
 # ------------------------------------------------------------
 
 
