@@ -50,5 +50,5 @@ include(cmake/gtest.cmake)
 ---
 
 Oliver Maurhart, <oliver.maurhart@headcode.space>  
-(C)opyright 2020 headcode.space  
+Copyright (C) 2020-2021 headcode.space
 [https://headcode.space](https://www.headcode.space)
