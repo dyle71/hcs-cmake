@@ -27,7 +27,7 @@ depicted above.
 
 ## Example
 
-Download Google Test as submodule like this:
+Download headcode mem as submodule like this:
 
 ```bash
 $ mkdir 3rd

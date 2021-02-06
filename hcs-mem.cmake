@@ -15,6 +15,7 @@
 # ------------------------------------------------------------
 
 if (NOT DEFINED HCS_MEM_SOURCE_DIR)
+    # expect hcs-mem in 3rd/ subfolder
     set(HCS_MEM_SOURCE_DIR ${CMAKE_SOURCE_DIR}/3rd/hcs-mem)
 endif()
 
@@ -42,6 +43,5 @@ if ("${HCS_MEM_INCLUDE}" STREQUAL "")
     )
 
     set(HCS_MEM_INCLUDE_DIR "${HCS_MEM_SOURCE_DIR}/include")
-    set(HCS_MEM_LIB_DIR "")
 
 endif ()

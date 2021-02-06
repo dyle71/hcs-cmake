@@ -15,6 +15,7 @@
 # ------------------------------------------------------------
 
 if (NOT DEFINED HCS_BENCHMARK_SOURCE_DIR)
+    # expect hcs-benchmark in 3rd/ subfolder
     set(HCS_BENCHMARK_SOURCE_DIR ${CMAKE_SOURCE_DIR}/3rd/hcs-benchmark)
 endif()
 
@@ -32,6 +33,7 @@ if ("${HCS_BENCHMARK_INCLUDE}" STREQUAL "")
     message(STATUS "Using hcs-benchmark found at ${HCS_BENCHMARK_SOURCE_DIR}...")
 
     execute_process(COMMAND "${CMAKE_COMMAND}"
+            -D HCS_CMAKE=${CMAKE_SOURCE_DIR}/cmake
             -S "${HCS_BENCHMARK_SOURCE_DIR}"
             -B ${CMAKE_BINARY_DIR}/3rd/hcs-benchmark
     )
@@ -40,6 +42,5 @@ if ("${HCS_BENCHMARK_INCLUDE}" STREQUAL "")
     )
 
     set(HCS_BENCHMARK_INCLUDE_DIR "${HCS_BENCHMARK_SOURCE_DIR}/include")
-    set(HCS_BENCHMARK_LIB_DIR "")
 
 endif ()
