@@ -38,9 +38,9 @@ if (PROFILING_MODE_ENABLED)
     set(COVERAGE_SONARQUBE_REPORT_FILE ${CMAKE_BINARY_DIR}/gcovr-sonarqube-report.xml)
 
     add_custom_target(run-gcovr
-        COMMAND ${GCOVR} -r ${CMAKE_SOURCE_DIR} -e ${CMAKE_SOURCE_DIR}/3rd -e ${CMAKE_SOURCE_DIR}/test -x -o ${COVERAGE_REPORT_FILE}
-        COMMAND ${GCOVR} -r ${CMAKE_SOURCE_DIR} -e ${CMAKE_SOURCE_DIR}/3rd -e ${CMAKE_SOURCE_DIR}/test -x --sonarqube ${COVERAGE_SONARQUBE_REPORT_FILE}
-        COMMAND ${GCOVR} -r ${CMAKE_SOURCE_DIR} -e ${CMAKE_SOURCE_DIR}/3rd -e ${CMAKE_SOURCE_DIR}/test
+        COMMAND ${GCOVR} -r ${CMAKE_SOURCE_DIR} --exclude-throw-branches -e ${CMAKE_SOURCE_DIR}/3rd -e ${CMAKE_SOURCE_DIR}/test -x -o ${COVERAGE_REPORT_FILE}
+        COMMAND ${GCOVR} -r ${CMAKE_SOURCE_DIR} --exclude-throw-branches -e ${CMAKE_SOURCE_DIR}/3rd -e ${CMAKE_SOURCE_DIR}/test -x --sonarqube ${COVERAGE_SONARQUBE_REPORT_FILE}
+        COMMAND ${GCOVR} -r ${CMAKE_SOURCE_DIR} --exclude-throw-branches -e ${CMAKE_SOURCE_DIR}/3rd -e ${CMAKE_SOURCE_DIR}/test
         COMMAND ${LCOV} -c --directory ${CMAKE_BINARY_DIR} --output-file ${COVERAGE_INFO_FILE}
         COMMAND ${LCOV} --remove ${COVERAGE_INFO_FILE} '/usr/include/*' --output-file ${COVERAGE_INFO_FILE} -q
         COMMAND ${LCOV} --remove ${COVERAGE_INFO_FILE} '/usr/lib/*' --output-file ${COVERAGE_INFO_FILE} -q
