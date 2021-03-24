@@ -21,12 +21,6 @@ foreach(CONTROL_FILE IN ITEMS conffiles;preinst;postinst;prerm;postrm)
     endif ()
 endforeach()
 
-if (DEFINED CPACK_SYSTEM_NAME)
-    set(CPACK_SYSTEM_NAME "_${CPACK_SYSTEM_NAME}")
-else()
-    set(CPACK_SYSTEM_NAME "")
-endif()
-
 string(TOLOWER "${CPACK_PACKAGE_NAME}" CPACK_PACKAGE_NAME_LOWERCASE)
 set(CPACK_PROJECT_VERSION_STRING "${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}.${CPACK_PACKAGE_VERSION_PATCH}")
 find_program(DPKG_PROGRAM dpkg DOC "dpkg program of Debian-based systems")
